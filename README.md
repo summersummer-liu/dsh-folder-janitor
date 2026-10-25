@@ -48,9 +48,23 @@
 
 前提是装了 DSH（DeepSeek Harness）`>= 0.2.1-rc.2`。这不是独立软件。
 
-1. 下载 [`dist/dsh-folder-janitor-0.2.0.zip`](dist/dsh-folder-janitor-0.2.0.zip)，解压到任意目录。
-2. 在 DSH 里说一句「把这个目录装成插件：<解压后的路径>」，它会走 `plugin_manager install_bundle`。
-3. 工具没出现的话，把插件行 `include:dsh-folder-janitor` 关掉再开，模块会重新加载。
+**一条地址（推荐）**
+
+打开 DSH → 设置 → 插件 → 添加插件，粘这一行：
+
+```
+https://github.com/summersummer-liu/dsh-folder-janitor
+```
+
+点安装。装完四个工具就出现在工具列表里。
+
+如果之前装过别的版本，先在插件列表里把它卸载，再粘地址——包结构变过的话，旧行会缓存旧路径，直接覆盖会报「failed to import」。装完没出现工具，就把 `include:dsh-folder-janitor` 关掉再开。
+
+**用发布包（网络不好时）**
+
+1. 下载 [`dist/dsh-folder-janitor-0.2.0.zip`](dist/dsh-folder-janitor-0.2.0.zip)，解压到任意目录，比如 `D:\tools\dsh-folder-janitor`。
+2. 回到添加插件那个框，粘解压后的目录路径（只写路径，别写别的）。
+3. 同样：工具没出现就关掉插件行再开。
 
 验证：随便找个文件夹说「先看看这里都有什么」，能返回体检报告就是通了。卸载在设置 → 插件里关掉那一行。
 
