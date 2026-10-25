@@ -446,7 +446,12 @@ async function buildManualPlan({ rootAbs, options, rawItems, now }) {
       refuse('不是普通文件或目录');
       continue;
     }
-    if (isDir && PROTECTED_DIRS.has(path.basename(srcAbs).toLowerCase())) {
+    // 任一路径段命中保护名单都拒：只挡 basename 时 plugins/dsh-humanizer 还能被单独搬走，
+    // 而 profile 的 junction 正指着它
+    const hitProtected = from
+      .split(/[\\/]+/)
+      .some((seg) => PROTECTED_DIRS.has(seg.toLowerCase()));
+    if (hitProtected) {
       refuse('受保护目录名，拒绝整体搬走');
       continue;
     }

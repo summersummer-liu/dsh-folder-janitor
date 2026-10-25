@@ -12,3 +12,6 @@ review/scratch-results.json
 build/pages/
 build/png/
 node_modules/
+build/*.pdf
+build/patch-*.mjs
+build/push-api.mjs

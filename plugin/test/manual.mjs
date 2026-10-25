@@ -63,12 +63,13 @@ async function main() {
         { from: 'node_modules', to: 'node_modules_old', reason: '受保护目录，应该被拒绝' },
         { from: '不存在的东西', to: 'x', reason: '源不存在，应该被拒绝' },
         { from: '../逃逸.txt', to: 'x', reason: '越界，应该被拒绝' },
+        { from: 'node_modules/lib/index.js', to: 'x/index.js', reason: '路径段命中保护名单，应该被拒绝' },
       ],
     },
   });
 
   await check('3 条合法动作进入计划', () => assert.equal(plan.entries.length, 3));
-  await check('4 条非法动作被拒绝且写了原因', () => assert.equal(plan.skippedTotal, 4));
+  await check('5 条非法动作被拒绝且写了原因', () => assert.equal(plan.skippedTotal, 5));
   await check('目录被标记为 dir，文件被标记为 file', () => {
     const kinds = plan.entries.map((e) => `${e.from}:${e.kind}`).sort();
     assert.deepEqual(kinds, ['attachment_1234567890:dir', 'junk_cache:dir', '《WKW》.pdf:file'].sort());

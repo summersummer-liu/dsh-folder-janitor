@@ -83,7 +83,7 @@ const pages = [];
 pages.push(page(`
   ${top('D:\\阅读学习', '一次真实的整理')}
   <div class="grow stack" style="justify-content:center;gap:34px">
-    <div class="kicker">${F.totalFiles.toLocaleString('en-US')} 个文件 · ${F.topItems} 个文件夹</div>
+    <div class="kicker">${F.totalFiles.toLocaleString('en-US')} 个文件 · ${F.topItems} 个顶层项</div>
     <div class="h1">给一个<br>38 GB 的<br>学习文件夹<br>做断舍离</div>
     <div class="lead" style="max-width:820px;color:#3A342C">两个 400MB 的散件躺在根目录，一个隐藏缓存占了 ${F.trashFiles} 个文件，三个文件夹的名字不是给人读的。</div>
   </div>
@@ -121,7 +121,8 @@ pages.push(page(`
       <div class="num" style="font-size:190px">${F.totalFiles.toLocaleString('en-US')}</div>
       <div class="lead">个文件、${F.dirs.toLocaleString('en-US')} 个目录，全树扫完 ${F.scanSeconds} 秒</div>
     </div>
-    <div class="body" style="max-width:880px">扫描只读元数据，一个字节都不写。出来的是：类型分布（图片 71%、文档 24%）、最大的目录、内容完全重复的组、临时与草稿文件清单。</div>
+    <div class="body" style="max-width:880px">扫描只读元数据，一个字节都不写。出来的是：类型分布、最大的目录、重复内容、垃圾清单。</div>
+    <div class="body" style="max-width:880px">最意外的一条：<span class="accent">86% 的文件归不进任何类型</span>，其中 38,578 个根本没有扩展名 —— 莫兰蒂那一个文件夹里就有 38,383 个无后缀文件、2,681 个 .old、2,341 个 .log。</div>
     <div class="small" style="max-width:820px">体检的价值不是「知道有多少文件」，是知道 <span class="accent">哪些不该动</span>：${F.untouched} 个项目文件夹在用，动它们只会让人找不到东西。</div>
   </div>
 `, { index: 3 }));
@@ -150,7 +151,7 @@ pages.push(page(`
 
 // 05 改了什么
 pages.push(page(`
-  ${top('结果 · 具体动作', '6 条计划，7 条成功移动')}
+  ${top('结果 · 具体动作', '9 条执行条目，7 条成功')}
   <div class="h2" style="margin-top:36px">改了什么</div>
   <table style="margin-top:34px">
     <tr><td class="old">attachment_17434050909562708</td><td class="arrow">→</td><td class="new">知末_施工图与案例素材</td></tr>
@@ -223,7 +224,7 @@ pages.push(page(`
     <div style="border-top:2px solid #16130F;padding-top:26px" class="stack">
       <div class="small" style="color:#16130F;font-size:24px">没做的：</div>
       <div class="small" style="margin-top:10px">${F.appleFiles} 个 macOS 元数据文件 <span class="mono">._*</span>（合计 1 MB）还在原地，没清。</div>
-      <div class="small">目录名越长越容易触发 ACL 问题，这条只绕过、没根治。</div>
+      <div class="small">EPERM 的原因没查清，只绕过、没根治。</div>
       <div class="small">插件还在自己电脑上跑，没有上架，也没打算现在上。</div>
     </div>
   </div>
