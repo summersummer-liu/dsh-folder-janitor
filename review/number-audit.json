@@ -1,0 +1,378 @@
+{
+  "generatedAt": "2026-10-25T02:39:40.181Z",
+  "checks": [
+    {
+      "name": "record/before.json 与我的独立基线逐文件一致",
+      "verdict": "PASS",
+      "detail": {
+        "leadTotals": {
+          "files": 53481,
+          "bytes": 41478292322,
+          "dirs": 22786,
+          "top_level_items": 19,
+          "links": 0
+        },
+        "mineTotals": {
+          "topLevelItems": 19,
+          "files": 53481,
+          "dirs": 22786,
+          "links": 0,
+          "bytes": 41478292322,
+          "GiB": 38.63
+        },
+        "onlyMine": [],
+        "onlyTheirs": [],
+        "sizeDiff": []
+      }
+    },
+    {
+      "name": "record/before.md 的 19 行逐行复算（文件数 + GiB）",
+      "verdict": "PASS",
+      "detail": {
+        "rows": 19,
+        "bad": []
+      }
+    },
+    {
+      "name": "README.md 的 GB 列复算",
+      "verdict": "FAIL",
+      "detail": {
+        "gbRows": 6,
+        "wrongAgainstGiB": [
+          "阅读: 写 23.08 GB / 实际 22.54 GiB",
+          "莫兰蒂作品: 写 5.32 GB / 实际 5.2 GiB",
+          "投标: 写 2.82 GB / 实际 2.75 GiB",
+          "G构造: 写 2.19 GB / 实际 2.14 GiB",
+          "积累与学习: 写 1.97 GB / 实际 1.92 GiB",
+          "建筑构件特辑detail: 写 1.87 GB / 实际 1.83 GiB"
+        ],
+        "explainsByFormulaB": "6/6 行符合 bytes/1024^2/1000（1000 MiB 当 1 GB）",
+        "allRows": [
+          {
+            "name": "阅读",
+            "statedFiles": 603,
+            "actualFiles": 603,
+            "stated": "23.08 GB",
+            "actualGiB": 22.54,
+            "actualMiB": 23077.3,
+            "matchA": false,
+            "matchB": true,
+            "fileCountOk": true
+          },
+          {
+            "name": "莫兰蒂作品",
+            "statedFiles": 49301,
+            "actualFiles": 49301,
+            "stated": "5.32 GB",
+            "actualGiB": 5.2,
+            "actualMiB": 5321.2,
+            "matchA": false,
+            "matchB": true,
+            "fileCountOk": true
+          },
+          {
+            "name": "投标",
+            "statedFiles": 89,
+            "actualFiles": 89,
+            "stated": "2.82 GB",
+            "actualGiB": 2.75,
+            "actualMiB": 2816.5,
+            "matchA": false,
+            "matchB": true,
+            "fileCountOk": true
+          },
+          {
+            "name": "G构造",
+            "statedFiles": 250,
+            "actualFiles": 250,
+            "stated": "2.19 GB",
+            "actualGiB": 2.14,
+            "actualMiB": 2188.2,
+            "matchA": false,
+            "matchB": true,
+            "fileCountOk": true
+          },
+          {
+            "name": "积累与学习",
+            "statedFiles": 19,
+            "actualFiles": 19,
+            "stated": "1.97 GB",
+            "actualGiB": 1.92,
+            "actualMiB": 1971.1,
+            "matchA": false,
+            "matchB": true,
+            "fileCountOk": true
+          },
+          {
+            "name": "建筑构件特辑detail",
+            "statedFiles": 7,
+            "actualFiles": 7,
+            "stated": "1.87 GB",
+            "actualGiB": 1.83,
+            "actualMiB": 1870.1,
+            "matchA": false,
+            "matchB": true,
+            "fileCountOk": true
+          },
+          {
+            "name": "_待归类",
+            "statedFiles": 2,
+            "actualFiles": 2,
+            "stated": "811.7 MB",
+            "actualGiB": 0.79,
+            "actualMiB": 811.7,
+            "matchA": true,
+            "matchB": null,
+            "fileCountOk": true
+          },
+          {
+            "name": "南京生活手册",
+            "statedFiles": 289,
+            "actualFiles": 289,
+            "stated": "410 MB",
+            "actualGiB": 0.4,
+            "actualMiB": 410.4,
+            "matchA": false,
+            "matchB": null,
+            "fileCountOk": true
+          },
+          {
+            "name": "concept_arts",
+            "statedFiles": 21,
+            "actualFiles": 21,
+            "stated": "392 MB",
+            "actualGiB": 0.38,
+            "actualMiB": 391.9,
+            "matchA": true,
+            "matchB": null,
+            "fileCountOk": true
+          },
+          {
+            "name": "MASS设计集团_作品集",
+            "statedFiles": 940,
+            "actualFiles": 940,
+            "stated": "267 MB",
+            "actualGiB": 0.26,
+            "actualMiB": 266.7,
+            "matchA": false,
+            "matchB": null,
+            "fileCountOk": true
+          },
+          {
+            "name": "知末_施工图与案例素材",
+            "statedFiles": 296,
+            "actualFiles": 296,
+            "stated": "129 MB",
+            "actualGiB": 0.13,
+            "actualMiB": 129.1,
+            "matchA": true,
+            "matchB": null,
+            "fileCountOk": true
+          },
+          {
+            "name": "博物馆建筑学习网页",
+            "statedFiles": 549,
+            "actualFiles": 549,
+            "stated": "105 MB",
+            "actualGiB": 0.1,
+            "actualMiB": 104.9,
+            "matchA": true,
+            "matchB": null,
+            "fileCountOk": true
+          },
+          {
+            "name": "_trash",
+            "statedFiles": 503,
+            "actualFiles": 503,
+            "stated": "71.9 MB",
+            "actualGiB": 0.07,
+            "actualMiB": 71.9,
+            "matchA": true,
+            "matchB": null,
+            "fileCountOk": true
+          },
+          {
+            "name": "学校建筑学习网页",
+            "statedFiles": 291,
+            "actualFiles": 291,
+            "stated": "60.8 MB",
+            "actualGiB": 0.06,
+            "actualMiB": 60.8,
+            "matchA": true,
+            "matchB": null,
+            "fileCountOk": true
+          },
+          {
+            "name": "作品集网页",
+            "statedFiles": 229,
+            "actualFiles": 229,
+            "stated": "55.4 MB",
+            "actualGiB": 0.05,
+            "actualMiB": 55.4,
+            "matchA": true,
+            "matchB": null,
+            "fileCountOk": true
+          },
+          {
+            "name": "中体量建筑",
+            "statedFiles": 48,
+            "actualFiles": 48,
+            "stated": "8.9 MB",
+            "actualGiB": 0.01,
+            "actualMiB": 8.9,
+            "matchA": true,
+            "matchB": null,
+            "fileCountOk": true
+          },
+          {
+            "name": "_covers",
+            "statedFiles": 6,
+            "actualFiles": 6,
+            "stated": "0.6 MB",
+            "actualGiB": 0,
+            "actualMiB": 0.6,
+            "matchA": true,
+            "matchB": null,
+            "fileCountOk": true
+          },
+          {
+            "name": "plugins",
+            "statedFiles": 38,
+            "actualFiles": 38,
+            "stated": "69 KB",
+            "actualGiB": 0,
+            "actualMiB": 0.1,
+            "matchA": false,
+            "matchB": null,
+            "fileCountOk": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "README.md 的文件数列复算",
+      "verdict": "PASS",
+      "detail": {
+        "bad": []
+      }
+    },
+    {
+      "name": "README 正文的关键断言复算",
+      "verdict": "PASS",
+      "detail": {
+        "19 个顶层项（README 正文）": {
+          "stated": 19,
+          "actual": 20,
+          "note": "现在含 README.md 与 .folder-janitor；排除 .folder-janitor 是 19，排除 README 与 .folder-janitor 是 18"
+        },
+        "53,481 个文件（README 正文）": {
+          "stated": 53481,
+          "actual": 53492,
+          "note": "这是搬前数字；盘上现在多了 README + 10 个状态文件"
+        },
+        "只动 6 处 / 其余 13 个不动": {
+          "stated": 6,
+          "actual": 6,
+          "note": "基线里 1789 个文件发生前缀位移，恰好落在这 6 个顶层项里"
+        },
+        "_待归类 2 个文件": {
+          "stated": 2,
+          "actual": 2,
+          "note": ""
+        },
+        "_trash 503 个文件": {
+          "stated": 503,
+          "actual": 503,
+          "note": ""
+        }
+      }
+    },
+    {
+      "name": "「38.63 GB」的口径",
+      "verdict": "PASS",
+      "detail": {
+        "bytes": 41478292322,
+        "GiB": 38.63,
+        "GB_decimal": 41.48,
+        "verdict": "38.63 是 GiB（41.48 GB 十进制），README 里同时出现 GB 字样与 GiB 数值"
+      }
+    },
+    {
+      "name": ".pdftmp 成分（README 称 pip 缓存 + Edge 临时 profile）",
+      "verdict": "INFO",
+      "detail": {
+        "topEntries": [
+          "bigtext.py",
+          "build_book.py",
+          "clean.py",
+          "edgeprofile/",
+          "extract.py",
+          "extract_imgs.py",
+          "fonts.py",
+          "heads.py",
+          "huivang_book.html",
+          "huivang_clean.txt",
+          "huivang_full.txt",
+          "huivang_raw.txt",
+          "imgs/",
+          "imgs_probe/",
+          "map.py",
+          "map_new.txt",
+          "part1.txt",
+          "part2a.txt",
+          "part2b.txt",
+          "part3a.txt",
+          "part3b.txt",
+          "part3c.txt",
+          "patch_tree.py",
+          "pip-build-tracker-eraq3kvp/",
+          "pip-build-tracker-o7c6ecz_/"
+        ],
+        "topEntryCount": 61,
+        "zeroByte": 49,
+        "topExt": [
+          [
+            ".jpg",
+            276
+          ],
+          [
+            "(none)",
+            141
+          ],
+          [
+            ".py",
+            23
+          ],
+          [
+            ".png",
+            19
+          ],
+          [
+            ".txt",
+            12
+          ],
+          [
+            ".log",
+            9
+          ],
+          [
+            ".db",
+            6
+          ],
+          [
+            ".db-journal",
+            4
+          ],
+          [
+            ".dat",
+            2
+          ],
+          [
+            ".db-wal",
+            2
+          ]
+        ]
+      }
+    }
+  ]
+}

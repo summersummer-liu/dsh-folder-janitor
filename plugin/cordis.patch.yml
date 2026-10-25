@@ -1,0 +1,5 @@
+# dsh-folder-janitor 的 profile 补丁层：插入一个 Host 插件行。
+# 这个插件不需要配置项：策略、深度、回收目录都在工具参数里按次指定。
+- insert:
+    - id: dsh-folder-janitor
+      name: dsh-folder-janitor

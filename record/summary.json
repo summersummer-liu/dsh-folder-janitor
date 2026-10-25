@@ -1,0 +1,86 @@
+{
+  "generated_at": "2026-10-25T02:39:09.682Z",
+  "total_files_before": 53481,
+  "total_bytes_before": 41478292322,
+  "total_bytes_after": 41478308175,
+  "trash_files": 503,
+  "trash_bytes": 75402057,
+  "moved_files": 2,
+  "moved_bytes": 851132380,
+  "renamed_dirs": 3,
+  "renamed_dirs_detail": [
+    {
+      "from": "26-1015【建筑设计事务所】MASS设计集团 MASS Design Group作品集",
+      "to": "MASS设计集团_作品集",
+      "files": 940,
+      "bytes": 279707066
+    },
+    {
+      "from": "attachment_17434050909562708",
+      "to": "知末_施工图与案例素材",
+      "files": 296,
+      "bytes": 135339728
+    },
+    {
+      "from": "中体量建筑_副本",
+      "to": "中体量建筑",
+      "files": 48,
+      "bytes": 9375024
+    }
+  ],
+  "appledouble_files": 257,
+  "appledouble_bytes": 1052672,
+  "appledouble_bytes_per_file": 4096,
+  "undo_available": true,
+  "biggest_folder": {
+    "name": "阅读",
+    "bytes": 24198298277,
+    "files": 603
+  },
+  "_check": {
+    "captured_before": "2026-10-25T02:30:15.762Z",
+    "captured_after": "2026-10-25T02:36:17.772Z",
+    "files_delta": 11,
+    "bytes_delta": 15853,
+    "new_artifacts": [
+      ".folder-janitor/id (16 B)",
+      ".folder-janitor/journals/journal-20261025-103235-2ba4.json (2162 B)",
+      ".folder-janitor/journals/journal-20261025-103305-c681.json (747 B)",
+      ".folder-janitor/journals/journal-20261025-103500-5c86.json (841 B)",
+      ".folder-janitor/journals/journal-20261025-103503-af4d.json (716 B)",
+      ".folder-janitor/plans/plan-20261025-103137-2752.json (2267 B)",
+      ".folder-janitor/plans/plan-20261025-103226-bf85.json (2267 B)",
+      ".folder-janitor/plans/plan-20261025-103259-f281.json (1041 B)",
+      ".folder-janitor/plans/plan-20261025-103457-8c38.json (1097 B)",
+      ".folder-janitor/plans/plan-20261025-103501-f5e2.json (972 B)",
+      "README.md (3727 B)"
+    ],
+    "matched_pairs": 1789,
+    "matched_bytes": 1350956255,
+    "matched_mtime_identical": 1789,
+    "unmatched_before": 0,
+    "appledouble_outside_trash_after": 257,
+    "renamed_files_total": 1284,
+    "renamed_bytes_total": 424421818,
+    "top_level_added": [
+      ".folder-janitor",
+      "README.md"
+    ],
+    "top_level_removed": [
+      "《WKW》.pdf",
+      "原画集.zip"
+    ],
+    "top_level_before": 19,
+    "top_level_after": 20,
+    "pdftmp_files_before": 503,
+    "pdftmp_bytes_before": 75402057,
+    "journal_bytes_sum": 851132380,
+    "journal_bytes_note": "folder-janitor 对 kind=dir 的条目记 size=null，日志 bytes 只累计普通文件；71.9 MB 的 .pdftmp 和三个改名目录不在日志 bytes 里",
+    "undo_entries": 6,
+    "undo_order": [
+      "journal-20261025-103503-af4d",
+      "journal-20261025-103500-5c86",
+      "journal-20261025-103235-2ba4"
+    ]
+  }
+}

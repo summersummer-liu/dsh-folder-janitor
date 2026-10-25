@@ -1,0 +1,42 @@
+[
+  {
+    "at": "2026-10-25T02:32:35.886Z",
+    "action": "MASS 原地改名失败（EPERM）",
+    "items": 1,
+    "bytes": 0,
+    "failed": 1,
+    "note": "journal-20261025-103235-2ba4 第 2 条 status=failed error=EPERM；10:33:05 原样重试一次仍是 EPERM（journal-20261025-103305-c681）。**ACL 不是原因**：现场复核 MASS 目录确实带一条从根目录继承来的 Everyone:(CI)(DENY)(DC)（根目录上这条是显式 ACE；阅读 / 中体量建筑 / 知末_施工图与案例素材 三个目录的 DACL 屏蔽了继承所以没有），但受控试验（10:39，在 record/.acl-probe 造出同款继承 ACE 后改名其子目录、并把子目录移出）全部成功——DENY(DC) 既不阻止同父改名，也不阻止移出。所以这一条只能记成「当时该目录被临时占用」，占用人没查到（没有 handle 工具，也没有进程把 cwd 设在该目录）。约 2.5 分钟后改用两步完成，两步都 ok 且读回核对 1/1。"
+  },
+  {
+    "at": "2026-10-25T02:35:00.036Z",
+    "action": "MASS 绕行第一步：挪进 _待归类 并改名",
+    "items": 1,
+    "bytes": 0,
+    "failed": 0,
+    "note": "journal-20261025-103500-5c86 · 26-1015【…】MASS…作品集 → _待归类\\MASS设计集团_作品集 · 读回核对 1/1"
+  },
+  {
+    "at": "2026-10-25T02:35:03.670Z",
+    "action": "MASS 绕行第二步：挪回根目录",
+    "items": 1,
+    "bytes": 0,
+    "failed": 0,
+    "note": "journal-20261025-103503-af4d · _待归类\\MASS设计集团_作品集 → MASS设计集团_作品集 · 读回核对 1/1。两步都是同卷 rename，第二步原地改名成功，说明 EPERM 既不是名字本身、也不是 ACL 造成的"
+  },
+  {
+    "at": "2026-10-25T02:39:20Z",
+    "action": "受控试验：ACL 的 DENY(DC) 会不会拦住改名",
+    "items": 3,
+    "bytes": 0,
+    "failed": 0,
+    "note": "在 reading-tidy/record/.acl-probe 下建 denied/ 与 control/，给 denied/ 加 Everyone:(OI)(CI)(DENY)(DC)，让子目录继承到同款 ACE：改名 denied/child 成功、把 denied/child3 移出成功、对照组 control/child 也成功。结论：DENY(DC) 不拦同父改名，也不拦移出，与 MASS 的 EPERM 无关。试验目录已删，D:\\阅读学习 全程未被写入。"
+  },
+  {
+    "at": "2026-10-25T02:40:12Z",
+    "action": "撤销验证（dry_run，只读）",
+    "items": 6,
+    "bytes": 0,
+    "failed": 0,
+    "note": "folder_undo dry_run：主批次 journal-...2ba4 将恢复 5 / 跳过 0 / 失败 0；journal-...af4d 将恢复 1；journal-...5c86 跳过 1（目标已被下一步移走）；journal-...c681 0 条可撤（唯一条目原本就失败）。完整还原需按 af4d → 5c86 → 2ba4 顺序撤，见 undo_check.json"
+  }
+]

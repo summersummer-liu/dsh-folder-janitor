@@ -1,0 +1,14 @@
+﻿# 原始快照太大（每个 6MB、含 5 万多条本机路径），只放汇总
+record/before.json
+record/after.json
+record/diff.json
+record/baseline*.json
+record/*.stdout*.txt
+review/baseline*.json
+review/baseline*.stdout*.txt
+review/verify-after.json
+review/.scratch/
+review/scratch-results.json
+build/pages/
+build/png/
+node_modules/
