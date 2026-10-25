@@ -33,7 +33,7 @@
 
 ## 插件
 
-`plugin/` 是 `dsh-folder-janitor` 的源码快照（v0.1.0）。四个工具：
+`plugin/` 是 `dsh-folder-janitor` v0.2.0 的源码。四个工具：
 
 | 工具 | 干什么 |
 |---|---|
@@ -43,6 +43,18 @@
 | `folder_undo` | 日志倒着走，只回滚还完好的文件 |
 
 设计上刻意不做的事：不删文件（只进 `_trash`）、不覆盖同名文件、不改项目文件夹、不碰 `plugins/`、`.git`、`node_modules` 这类目录。撤销要过三道检查：目录身份、目标还是不是普通文件、内容有没有被动过。
+
+### 装到你自己的 DSH 上
+
+前提是装了 DSH（DeepSeek Harness）`>= 0.2.1-rc.2`。这不是独立软件。
+
+1. 下载 [`dist/dsh-folder-janitor-0.2.0.zip`](dist/dsh-folder-janitor-0.2.0.zip)，解压到任意目录。
+2. 在 DSH 里说一句「把这个目录装成插件：<解压后的路径>」，它会走 `plugin_manager install_bundle`。
+3. 工具没出现的话，把插件行 `include:dsh-folder-janitor` 关掉再开，模块会重新加载。
+
+验证：随便找个文件夹说「先看看这里都有什么」，能返回体检报告就是通了。卸载在设置 → 插件里关掉那一行。
+
+Windows 实测过；macOS / Linux 能跑但边界分支（撤销、改名）没验过。许可证 MIT，见 [`LICENSE`](LICENSE)。
 
 跑测试：`cd plugin && node test/run.mjs && node test/edge.mjs && node test/manual.mjs`（29 + 23 + 15 项）。`plugin/test/adversarial.mjs` 是另一套 140 项的对抗测试。
 

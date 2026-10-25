@@ -1,11 +1,19 @@
 {
   "name": "dsh-folder-janitor",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
-  "description": "整理混乱文件夹：只读体检 → 可复核的移动清单 → 带日志的执行 → 一键撤销。",
-  "keywords": ["dsh", "dsh-plugin", "deepseek-harness", "folders", "tidy", "organize"],
+  "description": "整理混乱文件夹：只读体检 → 可复核的移动清单 → 带日志的执行 → 一键撤销。Tidy a messy folder with a reviewable plan and one-step undo.",
+  "keywords": ["dsh", "dsh-plugin", "deepseek-harness", "folders", "tidy", "organize", "undo"],
   "license": "MIT",
+  "author": "summersummer-liu",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/summersummer-liu/dsh-folder-janitor"
+  },
+  "engines": {
+    "dsh": ">=0.2.1-rc.2"
+  },
   "main": "index.js",
   "exports": {
     ".": "./index.js",
@@ -18,7 +26,8 @@
     "cordis.patch.yml",
     "locale/*.json",
     "icon.svg",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "dsh": {
     "bundle": {
