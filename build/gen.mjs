@@ -121,7 +121,7 @@ pages.push(page(`
       <div class="num" style="font-size:190px">${F.totalFiles.toLocaleString('en-US')}</div>
       <div class="lead">个文件、${F.dirs.toLocaleString('en-US')} 个目录，全树扫完 ${F.scanSeconds} 秒</div>
     </div>
-    <div class="body" style="max-width:880px">扫描只读元数据，一个字节都不写。出来的是：类型分布、最大的目录、重复内容、垃圾清单。</div>
+    <div class="body" style="max-width:880px">这一步只看文件的基本信息，一个字节都不改。出来的是：类型分布、最大的目录、重复内容、垃圾清单。</div>
     <div class="body" style="max-width:880px">最意外的一条：<span class="accent">86% 的文件归不进任何类型</span>，其中 38,578 个根本没有扩展名 —— 莫兰蒂那一个文件夹里就有 38,383 个无后缀文件、2,681 个 .old、2,341 个 .log。</div>
     <div class="small" style="max-width:820px">体检的价值不是「知道有多少文件」，是知道 <span class="accent">哪些不该动</span>：${F.untouched} 个项目文件夹在用，动它们只会让人找不到东西。</div>
   </div>
@@ -133,10 +133,10 @@ pages.push(page(`
   <div class="h2" style="margin-top:40px">看 → 清单 → 搬 → 撤销</div>
   <div class="grow stack" style="justify-content:center;gap:40px">
     ${[
-      ['看', '只读体检。类型、体积、重复、垃圾，先摊在桌上。'],
-      ['清单', '每条 from → to 写清楚，附理由。这一步也不动文件。'],
-      ['搬', '按清单执行，边搬边记账，搬完回盘核对每个落点。'],
-      ['撤销', '日志倒着走，只回滚还完好的文件；改过的不硬来。'],
+      ['看', '只看不动。先看清里面有什么、什么最占地方、哪些是垃圾。'],
+      ['清单', '列一张单子：哪个搬到哪、为什么。这一步也不动文件。'],
+      ['搬', '按单子搬，边搬边记账，搬完回盘上核对每个落点。'],
+      ['撤销', '照账本倒着退。退之前先看文件有没有被改过，改过的不硬退。'],
     ]
       .map(
         ([k, v], i) => `<div style="display:flex;gap:36px;align-items:baseline;border-top:1px solid rgba(22,19,15,.16);padding-top:26px">
@@ -146,12 +146,12 @@ pages.push(page(`
       )
       .join('')}
   </div>
-  <div class="small">顺序不是洁癖：直接 mv 一把梭，半小时后就想不起文件原来在哪。</div>
+  <div class="small">直接一把梭我试过，过两天就找不到东西。</div>
 `, { index: 4 }));
 
 // 05 改了什么
 pages.push(page(`
-  ${top('结果 · 具体动作', '9 条执行条目，7 条成功')}
+  ${top('结果 · 具体动作', '9 条动作，7 条成功')}
   <div class="h2" style="margin-top:36px">改了什么</div>
   <table style="margin-top:34px">
     <tr><td class="old">attachment_17434050909562708</td><td class="arrow">→</td><td class="new">知末_施工图与案例素材</td></tr>
@@ -190,26 +190,26 @@ pages.push(page(`
 // 07 意外一：ACL
 pages.push(page(`
   ${top('意外 01', '没查出来的原因，就不写')}
-  <div class="h2" style="margin-top:40px">改名被拒绝：EPERM</div>
+  <div class="h2" style="margin-top:40px">那次没成的改名</div>
   <div class="grow stack" style="justify-content:center;gap:30px">
-    <div class="body">那个 ${F.longName} 字符的文件夹，原地改名报 <span class="mono accent">EPERM</span>。第一反应是权限：它的 DACL 里确实有一条下载工具留下的拒绝项 <span class="mono">Everyone:(CI)(DENY)(DC)</span>。</div>
-    <div class="body">但做了个受控试验：在自己的目录里造出一条一模一样的继承 ACE，再改子目录名 —— <b>成功了</b>。所以那条 deny 不是原因。</div>
-    <div class="body">也查过有没有进程占着它，没查到。这就是一次没查清原因的失败。</div>
-    <div class="body">绕法是：<span class="accent">先横着挪进 _待归类，再挪回根目录</span>。两次普通移动，两条日志，撤销照样能回去。</div>
+    <div class="body">那个 ${F.longName} 个字的文件夹，我就在原地给它换个名，系统直接拒绝。第一反应是权限：它的权限设置里确实有一条下载工具留下的限制，写着「不许删里面的东西」。</div>
+    <div class="body">但我做了个实验：自己在别处造出一条一模一样的限制，再给文件夹改名 —— <b>成功了</b>。所以那条限制不是原因。</div>
+    <div class="body">也查过是不是有程序正开着它，没查到。到底为什么，我没弄清楚。</div>
+    <div class="body">最后的办法是绕：<span class="accent">先搬到旁边的文件夹，再搬回来</span>，名字就换了。两次都记了账，随时能退回去。</div>
   </div>
-  <div class="small">临时授的 FullControl 已经撤掉，权限回到原样。写一条不成立的因果，比写「不知道」更糟。</div>
+  <div class="small">临时加的权限已经撤掉了。写一条没验证过的原因，比写「不知道」更糟。</div>
 `, { index: 7 }));
 
 // 08 意外二：插件差点搬坏自己
 pages.push(page(`
   ${top('意外 02', '自己人差点被自己人搬走')}
-  <div class="h2" style="margin-top:40px">它想搬走 plugins/</div>
+  <div class="h2" style="margin-top:40px">它差点搬走我自己的代码</div>
   <div class="grow stack" style="justify-content:center;gap:30px">
-    <div class="body"><span class="mono">plugins/</span> 是插件源码，DSH 用 junction 指着它。早期版本的「手动清单」允许搬任何目录，对抗测试直接复现了：搬完，插件当场失效。</div>
+    <div class="body">我写插件用的那个文件夹，被系统里另一处用快捷方式指着。第一版允许搬任何文件夹，测试直接复现了：一搬，插件当场不能用。</div>
     <div class="card"><div class="kicker">修了两处</div>
-      <div class="body" style="margin-top:12px">1. 保护名单：<span class="mono">plugins / .git / node_modules / __pycache__</span> 一律拒绝移动。<br>2. 真实路径校验：字符串判断挡不住 junction，改成取 realpath 再比根目录。</div>
+      <div class="body" style="margin-top:12px">1. 代码、缓存这类文件夹，一律不许搬。<br>2. 不只看名字，还查文件真正在哪 —— 快捷方式指到文件夹外面的，也拦下来。</div>
     </div>
-    <div class="small">这两条是对抗测试挖出来的，不是我自己想到的。测试从 8 个真 bug 里挑出了它们。</div>
+    <div class="small">这两条是专门来找茬的 AI 挖出来的，不是我自己想到的。</div>
   </div>
 `, { index: 8 }));
 
@@ -223,8 +223,8 @@ pages.push(page(`
     <div class="card"><div class="body"><b>不删，只进回收站。</b>${F.trashMb} MB 的缓存也在 _trash 里躺着，不是消失。</div></div>
     <div style="border-top:2px solid #16130F;padding-top:26px" class="stack">
       <div class="small" style="color:#16130F;font-size:24px">没做的：</div>
-      <div class="small" style="margin-top:10px">${F.appleFiles} 个 macOS 元数据文件 <span class="mono">._*</span>（合计 1 MB）还在原地，没清。</div>
-      <div class="small">EPERM 的原因没查清，只绕过、没根治。</div>
+      <div class="small" style="margin-top:10px">${F.appleFiles} 个 mac 留下来的 4KB 小文件（点开头，Windows 上用不到，合计 1 MB）还在原地，没清。</div>
+      <div class="small">有个改名失败的毛病只绕过去了，没找到根因。</div>
       <div class="small">插件还在自己电脑上跑，没有上架，也没打算现在上。</div>
     </div>
   </div>
