@@ -15,3 +15,5 @@ node_modules/
 build/*.pdf
 build/patch-*.mjs
 build/push-api.mjs
+build-plugin/pages/
+build-plugin/png/
